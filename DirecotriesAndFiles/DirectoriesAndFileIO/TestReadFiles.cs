@@ -49,6 +49,9 @@ namespace DirectoriesAndFileIO
         {
             string txt = File.ReadAllText(fileA);
             Assert.AreEqual(fileAContents, txt);
+
+            string txtB = File.ReadAllText(fileB);
+            Assert.AreEqual(fileBContents, txtB);
         }
 
         [TestMethod]
@@ -62,6 +65,7 @@ namespace DirectoriesAndFileIO
             string[] linesB = File.ReadAllLines(fileB);
 
             Assert.AreEqual(3, linesB.Length);
+
         }
 
         [TestMethod]
