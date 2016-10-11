@@ -56,8 +56,8 @@ om verschillende manieren te demonstreren om bestanden **weg te schrijven**.
 Gebruik zeker :
 
 - `Initialize` en `CleanUp`
-- een test voor `WriteAllText`
 - een test voor `WriteAllLines`
+- een test voor `WriteAllText`
 - een test voor `StreamWriter`
 - eventueel een test voor `File.OpenWrite`
 

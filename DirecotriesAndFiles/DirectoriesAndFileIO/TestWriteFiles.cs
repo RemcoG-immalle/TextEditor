@@ -63,18 +63,41 @@ namespace DirectoriesAndFileIO
         [TestMethod]
         public void WriteAllLines()
         {
-            string[] lines = fileBContents.Split('\n');
+            char[] chars = { '\n' };
+            string[] lines = fileBContents.Split(chars);
 
             File.WriteAllLines(fileB, lines);
-
+            
             StreamReader sr;
             sr = File.OpenText(fileB);
             string result = sr.ReadToEnd();
 
-            Assert.AreEqual(result, fileBContents);
+            Assert.AreEqual(result, "This is b.txt.\r\nDit is een newline.\r\nEn nog een newline.\r\n");
 
             sr.Close();
         }
 
+        [TestMethod]
+        public void StreamWriter()
+        {
+            StreamWriter sw = new StreamWriter(fileA);
+
+            char[] chars = { '\n' };
+            string[] lines = fileBContents.Split(chars);
+
+            foreach (var line in lines)
+            {
+                sw.WriteLine(line);
+            }
+
+            StreamReader sr;
+            sr = File.OpenText(fileA);
+            string result = sr.ReadToEnd();
+
+            Assert.AreEqual(result, "This is b.txt.\r\nDit is een newline.\r\nEn nog een newline.\r\n");
+
+            sw.Close();
+            sr.Close();
+        }
     }
 }
