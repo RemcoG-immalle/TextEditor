@@ -80,7 +80,7 @@ namespace DirectoriesAndFileIO
         [TestMethod]
         public void StreamWriter()
         {
-            StreamWriter sw = new StreamWriter(fileA);
+            StreamWriter sw = new StreamWriter(fileB);
 
             char[] chars = { '\n' };
             string[] lines = fileBContents.Split(chars);
@@ -89,14 +89,14 @@ namespace DirectoriesAndFileIO
             {
                 sw.WriteLine(line);
             }
-
+            sw.Close();
             StreamReader sr;
-            sr = File.OpenText(fileA);
+            sr = File.OpenText(fileB);
             string result = sr.ReadToEnd();
 
             Assert.AreEqual(result, "This is b.txt.\r\nDit is een newline.\r\nEn nog een newline.\r\n");
 
-            sw.Close();
+            
             sr.Close();
         }
     }

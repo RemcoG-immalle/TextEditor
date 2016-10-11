@@ -26,7 +26,7 @@ namespace DirectoriesAndFileIO
             subDir = Path.Combine(testDir, "subDir");
             subDirFile = Path.Combine(subDir, subDirFile);
             fileAContents = "This is a.txt.";
-            fileBContents = "This is b.txt. \n Dit is een newline. \n En nog een newline.";
+            fileBContents = "This is b.txt.\nDit is een newline.\nEn nog een newline.";
             subDirFileContents = "This is a file in a sub-directory.";
 
             Directory.CreateDirectory(testDir);
@@ -63,7 +63,7 @@ namespace DirectoriesAndFileIO
             Assert.AreEqual(fileAContents, lines[0]);
 
             string[] linesB = File.ReadAllLines(fileB);
-
+            
             Assert.AreEqual(3, linesB.Length);
 
         }
